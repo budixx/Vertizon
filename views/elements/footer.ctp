@@ -1,7 +1,9 @@
 	<div id="footer">
 		<div class="footer-inside">
 			<div class="topf">
-				<a href="#"><img src="images/nzxt-logo.jpg" alt="logo nzxt" class="nzxt"></a>
+				<?php 
+					echo $this->Html->link($this->Html->image('nzxt-logo.jpg',array('alt' => 'logo nzxt','class' => 'nzxt')),'#',array('escape' => false));
+				?>
 				<div class="newsletter-place"></div>
 				<div class="newsletter-botton">
 					<form method="" action="">

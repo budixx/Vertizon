@@ -67,10 +67,10 @@ ACCORDION
 .accordion {
 	margin: 10px 0 0 0;
 	width: 640px;
-	background: url(../images/dropdown.png) top no-repeat;
+	background: url(../img/dropdown.png) top no-repeat;
 }
 .accordion h3 {
-	background: url(../images/arrow-square.gif) no-repeat right -50px;
+	background: url(../img/arrow-square.gif) no-repeat right -50px;
 	padding: 8px 15px;
 	margin: 0;
 	text-transform: uppercase;
@@ -100,7 +100,7 @@ ALL PRODUCT CSS
 	.interm-title {
 		width: 200px;
 		height: 35px;
-		background: url(../images/product-tittle.jpg) top no-repeat;
+		background: url(../img/product-tittle.jpg) top no-repeat;
 		}
 		.interm-title h3 { font: 14px Verdana,Arial; color: #FFF; padding: 8px 0 0 8px; }
 	.interm-body {
@@ -114,7 +114,7 @@ ALL PRODUCT CSS
 		width: 615px;
 		height: 102px;
 		padding-left: 25px;
-		background: url(../images/bg-sortby.png) no-repeat;
+		background: url(../img/bg-sortby.png) no-repeat;
 		}
 		.sortby-panel h3 {
 			padding-top: 15px;
@@ -130,7 +130,7 @@ ALL PRODUCT CSS
 		.brand-top {
 			width: 640px;
 			height: 32px;
-			background: url(../images/brand-title.jpg) no-repeat;
+			background: url(../img/brand-title.jpg) no-repeat;
 			}
 			.brand-top .brand-name {
 				padding: 6px 0 0 20px;
@@ -149,7 +149,7 @@ ALL PRODUCT CSS
 				height: 113px;
 				padding: 13px 0 0 13px;
 				margin-right: 20px;
-				background: url(../images/border-brand.jpg) no-repeat;
+				background: url(../img/border-brand.jpg) no-repeat;
 				}
 			.thumbs3 {
 				float: left;
@@ -173,7 +173,7 @@ ALL PRODUCT CSS
 		.brand-bottom {
 			width: 640px;
 			height: 15px;
-			background: url(../images/brand-foot.jpg) no-repeat;
+			background: url(../img/brand-foot.jpg) no-repeat;
 			}
 			
 .type-product {
@@ -225,7 +225,7 @@ ul.listed {
 	}
 ul.listed li {
 	line-height: 20px;
-	list-style-image: url(../images/list.gif); 
+	list-style-image: url(../img/list.gif); 
 	}
 /*************************************
 ALL NEWS EVENTS REVIEW CSS
@@ -234,7 +234,7 @@ ALL NEWS EVENTS REVIEW CSS
 .bg-news-title {
 	width: 640px;
 	height: 50px;
-	background: url(../images/bg-new-title.png) top no-repeat;
+	background: url(../img/bg-new-title.png) top no-repeat;
 	}
 	.bg-news-title .date {
 		padding: 8px 0 0 10px;
@@ -255,7 +255,7 @@ ALL INFORMATION CSS
 	position: relative;
 	padding: 15px 15px 10px 45px;
 	height: 35px;
-	background: url(../images/ic-pdf.jpg) 0px 15px no-repeat;
+	background: url(../img/ic-pdf.jpg) 0px 15px no-repeat;
 	border-bottom: 1px solid #bababa;
 	}
 	.download .down {
@@ -280,7 +280,7 @@ CONTACT
 		width: 244px;
 		height: 15px;
 		padding: 4px;
-		background: url(../images/txt-name.jpg) no-repeat;
+		background: url(../img/txt-name.jpg) no-repeat;
 		}
 	.messbox {
 		margin-top: 5px;
@@ -288,7 +288,7 @@ CONTACT
 		width: 525px;
 		height: 80px;
 		padding: 4px;
-		background: url(../images/messagebox.jpg) no-repeat;
+		background: url(../img/messagebox.jpg) no-repeat;
 		}
 	.submit2 {
 		margin-top: 10px;
@@ -296,7 +296,7 @@ CONTACT
 		cursor: pointer;
 		width: 87px;
 		height: 24px;
-		background: url(../images/submit.jpg) no-repeat;
+		background: url(../img/submit.jpg) no-repeat;
 		}
 
 /*************************************
@@ -312,7 +312,7 @@ BANNER LAYOUT
 		margin: 0 auto;
 		height: 100px;
 		width: 980px;
-		background: url(../images/bg-ban2.jpg) no-repeat;
+		background: url(../img/bg-ban2.jpg) no-repeat;
 		}
 	.font-all {
 		position: absolute;
@@ -348,7 +348,7 @@ ALL INSIDE
 		padding: 10px 0;
 		width: 280px;
 		height: 20px;
-		background: url(../images/border-horizontal.jpg) center 10px no-repeat;
+		background: url(../img/border-horizontal.jpg) center 10px no-repeat;
 		}
 	/*******************************************
 	SUB MENU PRODUCT
@@ -368,7 +368,7 @@ ALL INSIDE
 		.accordion2 h3 a { 
 			padding: 0 0 0 20px;
 			color: #222; 
-			background: url(../images/arrow.png) left no-repeat; 
+			background: url(../img/arrow.png) left no-repeat; 
 			}
 		
 	.accordion2 h3 a:hover {
@@ -383,7 +383,7 @@ ALL INSIDE
 		border-right: solid 1px #eee;
 		}
 		ul.sub li {
-			background: url(../images/arrow-mini.jpg) 10px 10px no-repeat;
+			background: url(../img/arrow-mini.jpg) 10px 10px no-repeat;
 			padding: 5px 0 5px 28px;
 			list-style: none;
 			}
@@ -398,7 +398,7 @@ ALL INSIDE
 	width: 640px;
 	padding: 20px 20px 10px;
 	min-height: 600px;
-	background: url(../images/border-vertical.jpg) left 8px no-repeat;
+	background: url(../img/border-vertical.jpg) left 8px no-repeat;
 	}
 	.inside-right p { line-height: 20px; }
 	.breadcrumb {

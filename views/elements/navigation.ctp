@@ -8,7 +8,7 @@
 			</form>
 		</div>
 		<div id="banner">
-			<a href="./" class="logo"><img src="images/logo.jpg" alt="logo"></a>
+			<?php echo $this->Html->link($this->Html->image('logo.jpg',array('alt' => 'logo')),array('controller' => 'dashboards','action' => 'index'),array('class' => 'logo','escape' => false));?>
 			<div class="nav">
 			<ul class="dropdown dropdown-horizontal">
 				<li><a href="./" class="home"></a></li>
@@ -28,9 +28,15 @@
 				</li>
 				<li><a href="news" class="information"></a>
 					<ul>
-						<li><a href="news/">News</a></li>
-						<li><a href="events/">Events</a></li>
-						<li><a href="reviews/">Reviews</a></li>
+						<li>
+							<?php echo $this->Html->link('News',array('controller' => 'contents','action' => 'index','news'));?>
+						</li>
+						<li>
+							<?php echo $this->Html->link('Events',array('controller' => 'contents','action' => 'index','events'));?>
+						</li>
+						<li>
+							<?php echo $this->Html->link('Reviews',array('controller' => 'contents','action' => 'index','reviews'));?>
+						</li>
 					</ul>
 				</li>
 				<li><a href="faq/" class="support"></a>

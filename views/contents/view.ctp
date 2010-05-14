@@ -1,46 +1,32 @@
-<div class="contents view">
-<h2><?php  __('Content');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $content['Content']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Type'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($content['Type']['name'], array('controller' => 'types', 'action' => 'view', $content['Type']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Title'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $content['Content']['title']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Content'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $content['Content']['content']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $content['Content']['created']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $content['Content']['modified']; ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Content', true)), array('action' => 'edit', $content['Content']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Content', true)), array('action' => 'delete', $content['Content']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $content['Content']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Contents', true)), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Content', true)), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Types', true)), array('controller' => 'types', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Type', true)), array('controller' => 'types', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+	<?php echo $this->element('small_banner')?>
+	<div id="content">
+		<div class="content-inside">
+			<?php echo $this->element('left_side');?>
+			
+			<!--RIGHT SIDE-->
+			<div class="inside-right">
+				<p class="breadcrumb">Home &nbsp;/&nbsp; Information &nbsp;/&nbsp; <abbr><?php echo $content['Type']['name']?></abbr></p>
+				<div class="dashline mr-top"></div>
+				<div class="mr-top2">
+					<div class="bg-news-title">
+						<p class="date">
+							<?php echo $this->Time->nice($content['Content']['created'])?>
+						</p>
+						<p class="titlenew">
+							<?php echo $content['Content']['title']?>
+						</p>
+					</div>
+					<div class="mr-top">
+						<?php echo $this->Html->image($content['Content']['image'],array('class' => 'ft-left mr-right'))?>
+						<p>
+							<?php echo $content['Content']['content']?>
+						</p>
+						<br>
+						<?php echo $this->Html->link('See More',array('action' => 'view',$content['Content']['id']),array('class' => 'more'))?>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
