@@ -18,9 +18,9 @@
 						</p>
 					</div>
 					<div class="mr-top">
-						<?php echo $this->Html->image($content['Content']['image'],array('class' => 'ft-left mr-right'))?>
+						<?php echo !empty($content['Content']['image']) ? $this->Html->image($content['Content']['image'],array('class' => 'ft-left mr-right')) : ''?>
 						<p>
-							<?php echo $content['Content']['content']?>
+							<?php echo $this->Text->truncate($content['Content']['content'],'400',array('exact' => false))?>
 						</p>
 						<br>
 						<?php echo $this->Html->link('See More',array('action' => 'view',$content['Content']['id']),array('class' => 'more'))?>

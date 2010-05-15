@@ -22,7 +22,6 @@
 							<?php echo $content['Content']['content']?>
 						</p>
 						<br>
-						<?php echo $this->Html->link('See More',array('action' => 'view',$content['Content']['id']),array('class' => 'more'))?>
 						<div class="clear"></div>
 					</div>
 				</div>

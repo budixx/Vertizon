@@ -2,7 +2,14 @@
 class ContentsController extends AppController {
 
 	var $name = 'Contents';
-
+	var $paginate = array('limit' => 1);
+	function beforeFilter()
+	{
+		parent::beforeFilter();
+		
+		$this->set('body','information');
+	}
+	
 	function index($id = null) 
 	{
 		$this->Content->recursive = 0;

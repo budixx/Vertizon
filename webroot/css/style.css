@@ -5,7 +5,8 @@
 ul#pagination-clean 		  { margin-top: 15px; float: right; }
 #pagination-clean li          { border:0; padding:0; font-size:11px; list-style:none; /* savers */ float:left; }
 /* savers #pagination-clean li,*/
-#pagination-clean a           { border-right:solid 1px #DEDEDE; margin-right:2px; }
+#pagination-clean li.current  { border-right:solid 1px #DEDEDE; margin-right:2px; padding:3px 6px;}
+#pagination-clean a  		  { border-right:solid 1px #DEDEDE; margin-right:2px; }
 #pagination-clean .previous-off,
 #pagination-clean .next-off   { color:#888888; display:block; float:left; font-weight:bold; padding:3px 4px; }	
 #pagination-clean .next a,
