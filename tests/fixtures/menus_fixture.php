@@ -1,7 +1,7 @@
 <?php
-/* Menu Fixture generated on: 2010-05-06 11:05:09 : 1273120989 */
-class MenuFixture extends CakeTestFixture {
-	var $name = 'Menu';
+/* Menus Fixture generated on: 2010-05-15 16:05:23 : 1273917563 */
+class MenusFixture extends CakeTestFixture {
+	var $name = 'Menus';
 
 	var $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),

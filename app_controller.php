@@ -6,7 +6,10 @@ class AppController extends Controller {
 	
 	function beforeFilter()
 	{
-		
+		if(isset($this->params['admin']))
+		{
+			$this->layout = 'admin';
+		}
 	}
 	
 }
