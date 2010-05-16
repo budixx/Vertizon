@@ -2,10 +2,25 @@
 class MenusesController extends AppController {
 
 	var $name = 'Menuses';
-
+	
+	function view($id)
+	{
+		$menus = $this->Menus->find('first',array('conditions' => array('Menus.id' => $id)));
+		
+		$body = empty($menus['ParentMenus']['name']) ? strtolower($menus['Menus']['name']) : strtolower($menus['ParentMenus']['name']);
+		
+		$this->set(compact('menus','body'));
+	}
+	
 	function admin_index() {
 		$this->Menus->recursive = 0;
-		$this->set('menuses', $this->paginate());
+		$this->set('menuses', $this->paginate('Menus',array('Menus.parent_id !=' => null)));
+	}
+	
+	function admin_main()
+	{
+		$this->Menus->recursive = 0;
+		$this->set('menuses', $this->paginate('Menus',array('Menus.parent_id ' => null)));
 	}
 
 	function admin_view($id = null) {
@@ -26,8 +41,8 @@ class MenusesController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'menu'));
 			}
 		}
-		$parentMenuses = $this->Menus->ParentMenu->find('list');
-		$this->set(compact('parentMenuses'));
+		$parents = $this->Menus->find('list',array('conditions' => array('parent_id' => null)));
+		$this->set(compact('parents'));
 	}
 
 	function admin_edit($id = null) {
@@ -46,8 +61,8 @@ class MenusesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Menus->read(null, $id);
 		}
-		$parentMenuses = $this->Menus->ParentMenu->find('list');
-		$this->set(compact('parentMenuses'));
+		$parents = $this->Menus->find('list',array('conditions' => array('parent_id' => null)));
+		$this->set(compact('parents'));
 	}
 
 	function admin_delete($id = null) {

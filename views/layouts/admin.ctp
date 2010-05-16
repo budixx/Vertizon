@@ -29,6 +29,8 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
+		
+		echo $this->Javascript->link(array('ckeditor/ckeditor'));
 
 		echo $scripts_for_layout;
 	?>

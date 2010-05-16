@@ -6,7 +6,8 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('parent_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('content');
+		echo $this->Form->input('content',array('class' => 'ckeditor'));
+		echo $this->Form->input('link');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

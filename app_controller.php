@@ -10,6 +10,11 @@ class AppController extends Controller {
 		{
 			$this->layout = 'admin';
 		}
+		
+		#get all the menu
+		$menuses = ClassRegistry::init('Menus')->find('all');
+		
+		$this->set(compact('menuses'));
 	}
 	
 }
