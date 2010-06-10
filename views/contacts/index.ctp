@@ -6,7 +6,7 @@
 			
 			<!--RIGHT SIDE-->
 			<div class="inside-right">
-				<p class="breadcrumb">Home &nbsp;/&nbsp; <abbr>About Us</abbr></p>
+				<p class="breadcrumb">Home &nbsp;/&nbsp; <abbr>Contact Us</abbr></p>
 				<div class="dashline mr-top"></div>
 				<br>
 				<p>If you need an estimate, have any questions, comments, suggestions or simply want to learn more about our services and write to us.

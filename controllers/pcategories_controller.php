@@ -5,7 +5,11 @@ class PcategoriesController extends AppController {
 
 	function index() {
 		$this->Pcategory->recursive = 0;
-		$this->set('pcategories', $this->paginate());
+		
+		$body = 'product';
+		$pcategories = $this->paginate();
+		
+		$this->set(compact('body','pcategories'));
 	}
 
 	function admin_index() {

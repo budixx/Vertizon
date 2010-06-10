@@ -14,7 +14,7 @@
 						<h3><?php echo $pcategory['Pcategory']['name']?></h3>
 					</div>
 					<div class="interm-body">
-						<?php echo $this->Html->link($this->Html->image($pcategory['Pcategory']['image'],array('alt' => 'product')),array('controller' => 'pbrands','action' => 'index',$pcategory['Pcategory']['id']),array('escape' => false))?>
+						<?php echo $this->Html->link($this->Html->image($pcategory['Pcategory']['file'],array('alt' => 'product')),array('controller' => 'pbrands','action' => 'index',$pcategory['Pcategory']['id']),array('escape' => false))?>
 					</div>
 				</div>
 				<?php endforeach;?>

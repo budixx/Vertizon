@@ -17,5 +17,33 @@ class AppController extends Controller {
 		$this->set(compact('menuses'));
 	}
 	
+/**
+	 * set the error message and redirect to referer if action is null
+	 *
+	 * @param the warning
+	 * @param redirect action
+	 * @return none
+	 * @access public
+	 */
+
+	function flashWarning($msg,$redirect = null)
+	{
+		$this->Session->setFlash($msg);
+		if(empty($redirect))
+		{
+			if($this->referer() == '/' || $this->referer() == '/'.$this->params['url']['url'])
+			{
+				$this->redirect(array('controller' => 'dashboards','action' => 'home'));
+			}
+			else
+			{
+				$this->redirect($this->referer());
+			}
+		}
+		else
+		{
+			$this->redirect($redirect);
+		}
+	}
 }
 ?>

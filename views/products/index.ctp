@@ -1,55 +1,52 @@
-<div class="products index">
-	<h2><?php __('Products');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('ptype_id');?></th>
-			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('desc');?></th>
-			<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-	$i = 0;
-	foreach ($products as $product):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $product['Product']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($product['Ptype']['name'], array('controller' => 'ptypes', 'action' => 'view', $product['Ptype']['id'])); ?>
-		</td>
-		<td><?php echo $product['Product']['name']; ?>&nbsp;</td>
-		<td><?php echo $product['Product']['desc']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $product['Product']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $product['Product']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-	));
-	?>	</p>
+	<?php echo $this->element('small_banner')?>
+	<div id="content">
+		<div class="content-inside">
+			<?php echo $this->element('left_side_product')?>
+			
+			<!--RIGHT SIDE-->
+			<div class="inside-right">
+				<p class="breadcrumb">Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; Aluminium Chassis &nbsp;/&nbsp; <abbr>NZXT</abbr></p>
+				<div class="dashline mr-top"></div>
+				
+				<!--sort by-->
+				<div class="sortby-panel">
+					<h3>Sort by</h3>
+					<p>( Please select category by Name, Latest Created, Or Latest Modified )</p>
+					<select class="mr-top">
+						<option>Name</option>
+						<option>Latest Created</option>
+						<option>Latest Modified</option>
+					</select>
+				</div>
 
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
+				<div class="mr-top">
+					<?php echo $this->element('showpage')?>
+					
+					 <?php echo $this->element('pagination')?>
+					  <div class="clear"></div>
+				</div>
+				<div class="dashline mr-top"></div>
+				
+				<!--SHOW TYPE PRODUCT-->
+				<?php foreach($products as $product):?>
+				<div class="type-product">
+					<?php echo $this->Html->image('assets/avatar.jpg',array('alt' => 'product'))?>
+					<h5>
+						<?php echo $this->Html->link($product['Product']['name'],array('action' => 'view',$product['Product']['id']))?>
+					</h5>
+					<p><?php echo $this->Text->truncate($product['Product']['desc'],110,array('exact' => false))?></p>
+				</div>
+				<?php endforeach;?>
+
+				<div class="mr-top clear">
+					<?php echo $this->element('showpage')?>
+					
+					<!--PAGING-->
+					   <?php echo $this->element('pagination')?>
+					  <div class="clear"></div>
+				</div>
+				
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Product', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Ptypes', true)), array('controller' => 'ptypes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Ptype', true)), array('controller' => 'ptypes', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
