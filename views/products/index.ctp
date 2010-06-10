@@ -8,22 +8,12 @@
 				<p class="breadcrumb">Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; Aluminium Chassis &nbsp;/&nbsp; <abbr>NZXT</abbr></p>
 				<div class="dashline mr-top"></div>
 				
-				<!--sort by-->
-				<div class="sortby-panel">
-					<h3>Sort by</h3>
-					<p>( Please select category by Name, Latest Created, Or Latest Modified )</p>
-					<select class="mr-top">
-						<option>Name</option>
-						<option>Latest Created</option>
-						<option>Latest Modified</option>
-					</select>
-				</div>
+				<?php echo $this->element('sort_by')?>
 
 				<div class="mr-top">
-					<?php echo $this->element('showpage')?>
-					
+					 <?php echo $this->element('showpage')?>
 					 <?php echo $this->element('pagination')?>
-					  <div class="clear"></div>
+					 <div class="clear"></div>
 				</div>
 				<div class="dashline mr-top"></div>
 				
