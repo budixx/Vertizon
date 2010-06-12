@@ -13,5 +13,9 @@ class DashboardsController extends AppController {
 				
 		$this->set(compact('banners','news','featureds'));
 	}
+	
+	function admin_index() {
+		
+	}
 }
 ?>

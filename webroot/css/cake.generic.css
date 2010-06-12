@@ -21,6 +21,23 @@
 	padding:0;
 }
 
+/*header*/
+#header ul li {
+	list-style:none;
+	float:left;
+}
+
+#header ul li a {
+	color:#fff;
+	text-decoration:none;
+	padding:5px 15px 5px 15px;
+}
+
+#header ul li a:hover {
+	background:#fff;
+	color:#000;
+}
+
 /** General Style Info **/
 body {
 	background: #003d4c;
