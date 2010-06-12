@@ -13,5 +13,21 @@ class Product extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	var $hasMany = array(
+		'Photo' => array(
+			'className' => 'Photo',
+			'foreignKey' => 'product_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 }
 ?>

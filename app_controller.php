@@ -36,7 +36,7 @@ class AppController extends Controller {
 		{
 			if($this->referer() == '/' || $this->referer() == '/'.$this->params['url']['url'])
 			{
-				$this->redirect(array('controller' => 'dashboards','action' => 'home'));
+				$this->redirect(array('controller' => 'dashboards','action' => 'index'));
 			}
 			else
 			{

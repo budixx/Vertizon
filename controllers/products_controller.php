@@ -2,6 +2,7 @@
 class ProductsController extends AppController {
 
 	var $name = 'Products';
+	var $helpers = array('Phpthumb');
 
 	function beforeFilter() {
 		parent::beforeFilter();
@@ -12,12 +13,11 @@ class ProductsController extends AppController {
 	
 	function index($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'product'));
-			$this->redirect(array('action' => 'index'));
+			$this->flashWarning('Invalid Product');
 		}
-		$this->Product->recursive = 0;
+		$this->Product->recursive = 1;
 		$products = $this->paginate('Product',array('Product.ptype_id' => $id));
-		
+
 		$this->set(compact('products'));
 	}
 
