@@ -8,9 +8,11 @@ class PbrandsController extends AppController {
 		
 		$pbrands = $this->paginate('Pbrand',array('Pbrand.pcategory_id' => $id));
 		$pcategory = $this->Pbrand->Pcategory->find('first',array('conditions' => array('Pcategory.id' => $id)));
+		
+		$left_category = $pcategory['Pcategory']['id'];
 		$body = 'product';
 		
-		$this->set(compact('pbrands','pcategory','body'));
+		$this->set(compact('pbrands','pcategory','body','left_category'));
 	}
 
 	function admin_index() {

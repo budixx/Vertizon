@@ -14,7 +14,10 @@ class AppController extends Controller {
 		#get all the menu
 		$menuses = ClassRegistry::init('Menus')->find('all');
 		
-		$this->set(compact('menuses'));
+		#get the left categories for product
+		$left_categories = ClassRegistry::init('Pcategory')->find('all');
+
+		$this->set(compact('menuses','left_categories'));
 	}
 	
 /**

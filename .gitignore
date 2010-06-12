@@ -1,2 +1,4 @@
 tmp/cache/models/*
 tmp/cache/persistent/*
+webroot/media/*
+webroot/img/thumbs/*

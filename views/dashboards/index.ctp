@@ -1,13 +1,50 @@
 <div id="content">
 		<div class="content-inside">
 			<div class="banner">
-				<p><img id="largeImg" src="assets/banner1.jpg" alt="Large image"/>
+				<p>
+					<?php
+					$large = $phpthumb->generate(
+						array(
+							'save_path' => WWW_ROOT . '/img/thumbs',
+							'display_path' => '/img/thumbs',
+							'error_image_path' => '/img/noimg.jpg', 
+							'src' => $banners[0]['Banner']['file'],
+							// From here on out, you can pass any standard phpThumb parameters
+							'w' => 980,
+							'h' => 310,
+							'q' => 100,
+							'zc' => 1
+						)
+					);
+					?>
+					<?php echo $this->Html->image($large['src'],array('id' => 'largeImg','alt' => 'Large image'))?>
 				</p>
 				<div class="thumbs">
-					<a href="assets/banner1.jpg" title="Image 1"><p class="active"></p></a>
-					<a href="assets/banner2.jpg" title="Image 2"><p></p></a>
-					<a href="assets/banner3.jpg" title="Image 3"><p></p></a>
-					<a href="assets/banner4.jpg" title="Image 4"><p></p></a>
+				<?php 
+					$i = 0;
+					foreach($banners as $banner):
+				?>
+					<?php
+						$banner = $phpthumb->generate(
+							array(
+								'save_path' => WWW_ROOT . '/img/thumbs',
+								'display_path' => '/img/thumbs',
+								'error_image_path' => '/img/noimg.jpg', 
+								'src' => $banner['Banner']['file'],
+								// From here on out, you can pass any standard phpThumb parameters
+								'w' => 980,
+								'h' => 310,
+								'q' => 100,
+								'zc' => 1
+							)
+						);
+					?>
+					<?php if($i++ == 0):?>
+						<?php echo $this->Html->link('<p class="active"></p>',$banner['src'],array('escape' => false));?>
+					<?php else:?>
+						<?php echo $this->Html->link('<p></p>',$banner['src'],array('escape' => false));?>
+					<?php endif;?>
+				<?php endforeach;?>
 				</div>
 			</div>
 			

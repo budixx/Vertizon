@@ -3,7 +3,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('image');?></th>
+			<th><?php echo $this->Paginator->sort('file');?></th>
 			<th><?php echo $this->Paginator->sort('link');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -17,7 +17,7 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $banner['Banner']['id']; ?>&nbsp;</td>
-		<td><?php echo $banner['Banner']['image']; ?>&nbsp;</td>
+		<td><?php echo $banner['Banner']['file']; ?>&nbsp;</td>
 		<td><?php echo $banner['Banner']['link']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $banner['Banner']['id'])); ?>

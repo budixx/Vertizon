@@ -1,9 +1,9 @@
 <div class="banners form">
-<?php echo $this->Form->create('Banner');?>
+<?php echo $this->Form->create('Banner',array('type' => 'file'));?>
 	<fieldset>
  		<legend><?php printf(__('Admin Add %s', true), __('Banner', true)); ?></legend>
 	<?php
-		echo $this->Form->input('image');
+		echo $this->Form->input('file',array('type' => 'file'));
 		echo $this->Form->input('link');
 	?>
 	</fieldset>

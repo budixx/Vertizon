@@ -2,60 +2,18 @@
 			<div class="inside-left">
 				<h2>Quick Links</h2>
 				<div class="accordion2">
-					<h3><a href="about/">Aluminium Chassis</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-					</ul>
-					<h3><a href="contact/">Case Accessories</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-					</ul>
-					<h3><a href="contact/">Case Fans</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
-					<h3><a href="contact/">Classic Series</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
-					<h3><a href="contact/">Crafted Series</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
-					<h3><a href="contact/">Fan Control Panels</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
-					<h3><a href="contact/">Gaming Mice</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
-					<h3><a href="contact/">Notebook Cooling</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
-					<h3><a href="contact/">Power Supplies</a></h3>
-					<ul class="sub">
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-						<li><a href="#">Lorem</a></li>
-					</ul>
+					<?php foreach ($left_categories as $category):?>
+						<h3><?php echo $this->Html->link($category['Pcategory']['name'],array('controller' => 'pcategories','action' => 'index',$category['Pcategory']['id']))?></h3>
+						<ul class="sub">
+						<?php if($category['Pcategory']['id'] == empty($left_category) ? null : $left_category):?>
+							<?php foreach($category['Pbrand'] as $brand):?>
+								<li>
+									<?php echo $this->Html->link($brand['name'],array('controller' => 'pbrands','action' => 'index',$brand['id']))?>
+								</li>
+							<?php endforeach;?>
+						<?php endif;?>
+						</ul>
+					<?php endforeach;?>
 				</div>
 				<div class="border-horizontal"></div>
 				
