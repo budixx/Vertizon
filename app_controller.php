@@ -2,7 +2,7 @@
 class AppController extends Controller {
 
 	var $components = array('Session');
-	var $helpers = array('Html','Form','Javascript','Session','Time','Text');
+	var $helpers = array('Html','Form','Javascript','Session','Time','Text','Phpthumb');
 	
 	function beforeFilter()
 	{
@@ -14,10 +14,11 @@ class AppController extends Controller {
 		#get all the menu
 		$menuses = ClassRegistry::init('Menus')->find('all');
 		
-		#get the left categories for product
+		#get the left variables
 		$left_categories = ClassRegistry::init('Pcategory')->find('all');
+		$left_featureds = ClassRegistry::init('Product')->find('all',array('conditions' => array('Product.featured' => 1)));
 
-		$this->set(compact('menuses','left_categories'));
+		$this->set(compact('menuses','left_categories','left_featureds'));
 	}
 	
 /**

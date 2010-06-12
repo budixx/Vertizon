@@ -1,7 +1,7 @@
 	<?php echo $this->element('small_banner')?>
 	<div id="content">
 		<div class="content-inside">
-			<?php echo $this->element('left_side_product')?>
+			<?php echo $this->element('left_side')?>
 			
 			<!--RIGHT SIDE-->
 			<div class="inside-right">
