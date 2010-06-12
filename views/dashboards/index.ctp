@@ -49,110 +49,42 @@
 			</div>
 			
 			<div class="featuredBox">
-				<img class="scrollArrow prev" src="images/arrow-left.jpg" alt="">
+				<?php echo $this->Html->image('/img/arrow-left.jpg',array('class' => 'scrollArrow prev','alt' => ''))?>
 				<div class="featuredContent">
 				<div class="featuredDisplayDiv">
 					<ul>
-					
+							<?php foreach($featureds as $featured):?>
+							<?php
+							$image = $phpthumb->generate(
+								array(
+									'save_path' => WWW_ROOT . '/img/thumbs',
+									'display_path' => '/img/thumbs',
+									'error_image_path' => '/img/noimg.jpg', 
+									'src' => $featured['Featured']['file'],
+									// From here on out, you can pass any standard phpThumb parameters
+									'q' => 100,
+									'f' => 'png'
+								)
+							);
+							?>
 							<!--===========Start============-->
 								<li> 
 								<div class="summaryBlock">
-									<a href="#">
+									<a href="<?php echo $featured['Featured']['link']?>">
 										<span class="featuredImage">  
-											<h5>ALUMINIUM CHASSIS</h5>
-											Produce competitive 
-											<br>and good quality 
-											<br>products	
-											<img border="0" src="assets/1.gif" alt="" class="one-one" >
+											<h5><?php echo $featured['Featured']['title']?></h5>
+											<?php echo $featured['Featured']['content']?>
+											<?php echo $this->Html->image($image['src'],array('alt' => '','class' => 'one-one'))?>	
 										</span>
 									</a>
 								</div>
-								</li>         
-							<!--===========End============-->
-							
-							<!--===========Start============-->
-								<li> 
-								<div class="summaryBlock">
-									<a href="#">
-										<span class="featuredImage">  
-											<h5>CASE</h5>
-											Produce competitive 
-											<br>and good quality 
-											<br>products	
-											<img border="0" src="assets/2.gif" alt="" class="one-one" >
-										</span>
-									</a>
-								</div>
-								</li>         
-							<!--===========End============-->
-							
-							<!--===========Start============-->
-								<li> 
-								<div class="summaryBlock">
-									<a href="#">
-										<span class="featuredImage">  
-											<h5>CASE FANS</h5>
-											Produce competitive 
-											<br>and good quality 
-											<br>products	
-											<img border="0" src="assets/3.gif" alt="" class="one-one" >
-										</span>
-									</a>
-								</div>
-								</li>         
-							<!--===========End============-->
-							
-							<!--===========Start============-->
-								<li> 
-								<div class="summaryBlock">
-									<a href="#">
-										<span class="featuredImage">  
-											<h5>HEADSINK</h5>
-											Produce competitive 
-											<br>and good quality 
-											<br>products	
-											<img border="0" src="assets/4.gif" alt="" class="one-one" >
-										</span>
-									</a>
-								</div>
-								</li>         
-							<!--===========End============-->
-							
-							<!--===========Start============-->
-								<li> 
-								<div class="summaryBlock">
-									<a href="#">
-										<span class="featuredImage">  
-											<h5>ACCESSORIES</h5>
-											Produce competitive 
-											<br>and good quality 
-											<br>products	
-											<img border="0" src="assets/5.gif" alt="" class="one-one" >
-										</span>
-									</a>
-								</div>
-								</li>         
-							<!--===========End============-->
-							
-							<!--===========Start============-->
-								<li> 
-								<div class="summaryBlock">
-									<a href="#">
-										<span class="featuredImage">  
-											<h5>ALUMINIUM CHASSIS</h5>
-											Produce competitive 
-											<br>and good quality 
-											<br>products	
-											<img border="0" src="assets/1.gif" alt="" class="one-one" >
-										</span>
-									</a>
-								</div>
-								</li>         
+								</li>   
+							<?php endforeach;?>      
 							<!--===========End============-->
 					</ul>
 				</div>
 				</div>
-				<img class="scrollArrow next" src="images/arrow-right.jpg" alt="">
+				<?php echo $this->Html->image('/img/arrow-right.jpg',array('class' => 'scrollArrow next','alt' => ''))?>
 			</div>
 			<!--// FEATURED END //-->
 			<div class="home-panel">

@@ -1,7 +1,7 @@
 	
 /************** MODULE - Feature Box **************/
 
-.featuredBox { position:relative; clear: both; background: url(../images/bg-slider.jpg) bottom no-repeat; width: 980px; height: 180px; }
+.featuredBox { position:relative; clear: both; background: url(../img/bg-slider.jpg) bottom no-repeat; width: 980px; height: 180px; }
 .featuredBox img.scrollArrow.prev { position:absolute; bottom: 15px; left: 0px; }
 .featuredBox img.scrollArrow.next { position:absolute; bottom: 15px; right: 0px; }
 .featuredBox .featuredContent { display: inline; float: left; width: 980px; height: 180px; margin: 0; padding: 0; overflow: hidden; }
@@ -9,7 +9,7 @@
 .featuredBox .featuredContent .featuredDisplayDiv ul { margin: 0; padding: 0; list-style: none; }
 *html .featuredBox .featuredContent .featuredDisplayDiv ul { margin: 0 0 0 -3px; }
 .featuredBox .featuredContent .featuredDisplayDiv ul li { float: left; width: 197px; }
-.featuredBox .featuredContent .featuredDisplayDiv div.summaryBlock { width: 192px; height: 137px; font-family: "Helvetica Neue", "Verdana", "Arial"; font-size: 12px; background: url(../images/bg-cate.jpg) top no-repeat; }
+.featuredBox .featuredContent .featuredDisplayDiv div.summaryBlock { width: 192px; height: 137px; font-family: "Helvetica Neue", "Verdana", "Arial"; font-size: 12px; background: url(../img/bg-cate.jpg) top no-repeat; }
 .featuredBox .featuredContent .featuredDisplayDiv div.summaryBlock .featuredImage { text-align: left; width: 172px; height: 125px; display: block; position: relative; padding: 12px 5px 0 15px; color: #444; }
 .featuredBox .featuredContent .featuredDisplayDiv div.summaryBlock .featuredImage img { float: none; margin: 0; padding: 0; }
 .featuredBox .featuredContent .featuredDisplayDiv div.summaryBlock .featuredHeadline { clear: both; margin: 6px 0 4px 0; font-weight: bold; font-size: 17px; line-height: 21px; color: #a4d67c; text-align:left; }

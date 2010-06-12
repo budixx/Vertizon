@@ -9,8 +9,9 @@ class DashboardsController extends AppController {
 	{
 		$banners = ClassRegistry::init('Banner')->find('all');
 		$news = ClassRegistry::init('Content')->find('all',array('conditions' => array('Content.type_id' => 1),'order' => 'created DESC','limit' => 2));
-		
-		$this->set(compact('banners','news'));
+		$featureds = ClassRegistry::init('Featured')->find('all');
+				
+		$this->set(compact('banners','news','featureds'));
 	}
 }
 ?>
