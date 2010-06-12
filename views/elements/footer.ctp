@@ -6,9 +6,9 @@
 				?>
 				<div class="newsletter-place"></div>
 				<div class="newsletter-botton">
-					<form method="" action="">
-						<input type="text" class="input-txt">
-						<input type="submit" value="" class="submit">
+					<?php echo $this->Form->create('Newsletter',array('action' => 'add'))?>
+						<?php echo $this->Form->text('email',array('class' => 'input-txt'))?>
+						<?php echo $this->Form->submit('/img/btn-submit.gif',array('class' => 'submit'))?>
 					</form>
 				</div>
 			</div>
