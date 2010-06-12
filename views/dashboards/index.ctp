@@ -167,17 +167,21 @@
 				</div>
 				<div class="home-panel-right">
 					<h2 style=" padding-bottom: 7px;">Latest News</h2>
+					<?php foreach($news as $new):?>
 					<div class="latest-news">
-						<h4><a href="#">Classic Series - A23 already in stock !</a></h4>
-						<h6>20 March 2010</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec felis sapien, laoreet faucibus erat. Nunc luctus velit fermentum augue feugiat consequat. Nulla libero ante, pellentesque eget euismod vel <a href="#" class="blue">[...]</a></p>
+						<h4>
+							<?php echo $this->Html->link($new['Content']['title'],array('controller' => 'contents','action' => 'view',$new['Content']['id']))?>
+						</h4>
+						<h6>
+							<?php echo $this->Time->nice($new['Content']['created'])?>
+						</h6>
+						<p>
+							<?php echo $this->Text->truncate($new['Content']['content'],200,array('ending' => '','exact' => false))?>
+							<?php echo $this->Html->link('[...]',array('controller' => 'contents','action' => 'view',$new['Content']['id']))?>
+						</p>
 					</div>
-					<div class="latest-news">
-						<h4><a href="#">Classic Series - A23 already in stock !</a></h4>
-						<h6>20 March 2010</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec felis sapien, laoreet faucibus erat. Nunc luctus velit fermentum augue feugiat consequat. Nulla libero ante, pellentesque eget euismod vel <a href="#" class="blue">[...]</a></p>
-					</div>
-					<a href="about/" class="more">See More</a>
+					<?php endforeach;?>
+					<?php echo $this->Html->link('See More',array('controller' => 'contents','action' => 'index','news'),array('class' => 'more'))?>
 				</div>
 				<div class="clear"></div>
 			</div>
