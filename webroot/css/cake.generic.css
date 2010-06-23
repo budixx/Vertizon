@@ -21,22 +21,218 @@
 	padding:0;
 }
 
-/*header*/
-#header ul li {
-	list-style:none;
-	float:left;
+/***********************************************
+HEADER
+
+***********************************************/
+#header {
+	position: relative;
+	height: 148px;
+	background: url(../img/bg-header-admin.gif);
+	}
+	.logo {
+		position: absolute;
+		top: 24px;
+		left: 20px;
+		width: 224px;
+		height: 109px;
+		background: url(../img/logo.jpg) no-repeat;
+		z-index: 3;
+		}
+	.bg-head {
+		position: absolute;
+		bottom : 0px;
+		left: 150px;
+		width: 873px;
+		height: 114px;
+		background: url(../img/swirl.jpg) no-repeat;
+		z-index: 2;
+		}
+		
+/**********
+NAVIGASI
+****/
+
+#navigasi {
+	padding: 19px 0 0 10px;
+	height: 35px;
+	background: url(../img/bg-navigasi-admin.gif) repeat-x;
+	}
+	ul.sub-mn {
+		padding-top: 7px;
+		}
+		.sub-mn li {
+			display: inline;
+			list-style: none;
+			}
+			.sub-mn li.last { background: none; }
+			.sub-mn li.last a { padding: 0 0 0 10px; }
+			
+			.sub-mn li a {
+				font: 11px Arial;
+				font-weight: bold;
+				color: #222;
+				padding: 0 15px 0 10px;
+				letter-spacing: 0.5px;
+				text-transform: uppercase;
+				}
+
+ul.dropdown,
+ul.dropdown li,
+ul.dropdown ul {
+ margin: 0;
+ padding: 0;
 }
 
-#header ul li a {
-	color:#fff;
-	text-decoration:none;
-	padding:5px 15px 5px 15px;
+ul.dropdown {
+ position: relative;
+ z-index: 597;
+ float: left;
 }
 
-#header ul li a:hover {
-	background:#fff;
-	color:#000;
+ul.dropdown li {
+ float: left;
+ line-height: 1.3em;
+ padding: 8px 12px 7px;
+ zoom: 1;
+ list-style: none;
 }
+
+ul.dropdown li.hover,
+ul.dropdown li:hover {
+ position: relative;
+ z-index: 599;
+ cursor: default;
+}
+
+ul.dropdown ul {
+ visibility: hidden;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ z-index: 598;
+ width: 100%;
+}
+
+ul.dropdown ul li {
+ float: none;
+ background: none;
+}
+
+ul.dropdown ul ul {
+ left: 99%;
+}
+
+ul.dropdown li:hover > ul {
+ visibility: visible;
+}
+
+ul.dropdown li a { /* Moved from 'custom' section */
+	padding: 0 15px 0 10px;
+	display: block;
+	}
+
+
+	
+/* ------------- Reinitiate default: post-override activities  */
+
+
+	/* Especially for IE6 or lower */
+
+	ul.dropdown ul a {
+	 padding: 4px 5px 4px 12px;
+	 /*width: 139px;*/
+	}
+
+	ul.dropdown ul a:hover {
+	 padding: 3px 5px 3px 11px;
+	 border: solid 1px #ddd;
+	 background-color: #eee;
+	}
+	
+	ul.dropdown ul a.dir {
+	 /*width: 129px;*/
+	}
+
+/* ----- FIRST LEVEL */
+
+ul.dropdown {
+ font: bold 12px Arial, Helvetica, sans-serif;
+}
+
+	ul.dropdown li.hover,
+	ul.dropdown li:hover {
+	 background-color: #222;
+	}
+	ul.dropdown li:hover a {
+		color: #FFF;
+		}
+
+	ul.dropdown a:link,
+	ul.dropdown a:visited { color: #000; text-decoration: none; }
+	ul.dropdown a:hover { color: #FFF; }
+	ul.dropdown a:active { color: #FFF; }
+
+
+/* ----- END LEVEL */
+
+
+/* ----- NON-FIRST LEVEL */
+
+	ul.dropdown ul {
+	 margin-left: -6px;
+	 width: 170px;
+	 padding-bottom: 15px;
+	 background: url(../img/dropdown_pane.png) 0 100% no-repeat;
+	 color: #000;
+	 font-size: 11px;
+	}
+
+		ul.dropdown ul li {
+			padding: 5px 12px 3px;
+		 	background-color: transparent;
+		 	color: #000;
+		}
+
+		ul.dropdown ul li.hover,
+		ul.dropdown ul li:hover {
+		 background-color: transparent;
+		}
+
+		ul.dropdown ul li.empty {
+		 padding: 12px 12px 7px !important;
+		 font-weight: bold;
+		}
+
+		ul.dropdown ul a:link,
+		ul.dropdown ul a:visited { color: #000; }
+		ul.dropdown ul a:hover { color: #000; text-decoration: none; }
+		ul.dropdown ul a:active { color: #000; }
+
+			ul.dropdown ul ul {
+			 display: none;
+			}
+
+/* ----- END LEVEL */
+
+
+
+/*------------------------------------------------------------------------------------------------------/
+ * @section	Support Class 'dir'
+ * @level sep	ul, .class
+ */
+
+
+/* ----- ALL LEVELS (incl. first) */
+
+ul.dropdown *.dir {
+ padding-right: 12px;
+ background-image: none;
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+
+/* ----- END LEVEL */
 
 /** General Style Info **/
 body {
@@ -91,26 +287,6 @@ ul, li {
 	text-align: left;
 }
 
-#header{
-	padding: 10px 20px;
-}
-#header h1 {
-	line-height:20px;
-	background: #003d4c url('../img/cake.icon.gif') no-repeat left;
-	color: #fff;
-	padding: 0px 30px;
-}
-#header h1 a {
-	color: #fff;
-	background: #003d4c;
-	font-weight: normal;
-	text-decoration: none;
-}
-#header h1 a:hover {
-	color: #fff;
-	background: #003d4c;
-	text-decoration: underline;
-}
 #content{
 	background: #fff;
 	clear: both;

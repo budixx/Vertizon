@@ -36,7 +36,10 @@
 	?>
 </head>
 <body>
-	<div id="container">
+	<div id="header">
+		<div class="bg-head"></div>
+		<div class="logo"></div>
+	</div>	
 		<?php echo $this->element('admin_navigation')?>
 		<div id="content">
 
