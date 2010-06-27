@@ -2,7 +2,17 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-
+	
+	function admin_login() {
+		
+	}
+	
+	function admin_logout() {
+		$this->Auth->logout();
+		$this->Session->setFlash('Successfully Logout !');
+		$this->redirect($this->referer());
+	}
+	
 	function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());

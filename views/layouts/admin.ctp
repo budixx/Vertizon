@@ -39,8 +39,10 @@
 	<div id="header">
 		<div class="bg-head"></div>
 		<div class="logo"></div>
-	</div>	
+	</div>
+		<?php if($session->check('Auth.User')): ?>
 		<?php echo $this->element('admin_navigation')?>
+		<?php endif;?>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>

@@ -1,14 +1,17 @@
 <?php
 class AppController extends Controller {
 
-	var $components = array('Session');
+	var $components = array('Session','Auth');
 	var $helpers = array('Html','Form','Javascript','Session','Time','Text','Phpthumb');
 	
 	function beforeFilter()
 	{
-		if(isset($this->params['admin']))
-		{
+		if(isset($this->params['admin'])) {
 			$this->layout = 'admin';
+			$this->Auth->deny();
+		}
+		else {
+			$this->Auth->allow();
 		}
 		
 		#get all the menu
