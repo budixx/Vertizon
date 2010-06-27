@@ -1,12 +1,4 @@
 		<div id="navigasi">
-			<!--
-			<ul>
-				<li><?php echo $this->Html->link('Dashboard',array('controller' => 'dashboards','action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Products',array('controller' => 'products','action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Banners',array('controller' => 'banners','action' => 'index')); ?></li>
-				
-			</ul>
-			-->
 			<ul id="nav" class="dropdown dropdown-horizontal">
 				<li><?php echo $this->Html->link('Dashboard',array('controller' => 'dashboards','action' => 'index')); ?></li>
 				<li><a href="#" class="dir">Products</a>
