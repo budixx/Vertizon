@@ -9,6 +9,7 @@ class AppController extends Controller {
 		if(isset($this->params['admin'])) {
 			$this->layout = 'admin';
 			$this->Auth->deny();
+			$this->Auth->autoRedirect = false;
 		}
 		else {
 			$this->Auth->allow();

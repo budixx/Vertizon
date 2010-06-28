@@ -4,7 +4,9 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	
 	function admin_login() {
-		
+		if($this->Auth->login($this->data)) {
+			$this->redirect(array('controller' => 'dashboards','action' => 'index'));
+		}
 	}
 	
 	function admin_logout() {
