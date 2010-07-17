@@ -3,7 +3,7 @@ class Product extends AppModel {
 	var $name = 'Product';
 	var $displayField = 'name';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-	var $actsAs = array('Media.Transfer','Media.Coupler','Media.Meta');
+	var $actsAs = array('Media.Transfer','Media.Coupler','Media.Meta','Searchable.Searchable');
 	var $validate = array(
 		'file' => array(
 			'mimeType' => array(

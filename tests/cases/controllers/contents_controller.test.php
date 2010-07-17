@@ -24,7 +24,7 @@ class ContentsControllerTestCase extends CakeTestCase {
 	}
 
 	function testIndex() {
-
+		$this->assertIdentical(0, false, 'Zero is not false [%s]');
 	}
 
 	function testView() {

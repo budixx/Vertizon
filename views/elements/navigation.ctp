@@ -2,10 +2,11 @@
 		<div class="header-inside">
 			<h6>Welcome to vertizon global technology</h6>
 			<div class="search-h"><h6>Search</h6></div>
-			<?php echo $this->Form->create('Dashboard',array('action' => 'search'))?>
-			<form method="" action="">
+			<?php 
+				echo $this->Form->create('SearchIndex', array('url' => array('plugin' => 'searchable', 'controller' => 'search_indexes', 'action' => 'index')));
+			?>
 				<div class="bg-search">
-					<?php echo $this->Form->text('keyword',array('class' => 'bg-txt'))?>
+					<?php echo $this->Form->text('term', array('class' => 'bg-txt')); ?>
 				</div>
 				<?php echo $this->Form->submit('magni.gif',array('div' => false,'class' => 'magni'))?>
 			</form>

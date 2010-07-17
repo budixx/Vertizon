@@ -34,4 +34,6 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	
+	include(APP.'plugins'.DS.'searchable'.DS.'config'.DS.'routes.php');
 ?>
