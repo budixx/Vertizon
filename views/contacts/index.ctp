@@ -25,40 +25,38 @@
 				
 				<div class="quick">
 					<h4 class="bluenavy">Quick way to get in touch with us :</h4>
-					<a href="#"><img src="images/offline.gif" alt="messanger" class="mr-top ft-left"></a>
-					<a href="#"><img src="images/online.gif" alt="messanger" style="margin: 10px 0 0 10px; float: left;"></a>
+					<a href="#">
+						<?php echo $this->Html->image('offline.gif',array('class' => 'mr-top ft-left','alt' => 'messenger'))?>
+					</a>
+					<a href="#">
+						<?php echo $this->Html->image('online.gif',array('class' => 'mr-top ft-left','alt' => 'messenger'))?>
+					</a>
 				</div>
 				
 				<div class="clear"></div>
 				<br><br>
 				<h4 class="bluenavy">Inquiry Form</h4>
-				<form method="" action="">
+				<?php echo $this->Form->create('Contact',array('inputDefaults' => array('label' => false)))?>
 				<table class="tabcon">
 					<tr>
 						<td width="280">Name : *<br>
-							<input type="text" class="bg-txt-con">
-						</td>
-						<td>Phone Number :<br>
-							<input type="text" class="bg-txt-con">
+							<?php echo $this->Form->input('name',array('class' => 'bg-txt-con'));?>
 						</td>
 					</tr>
 					<tr>
 						<td width="280">Email : *<br>
-							<input type="text" class="bg-txt-con">
-						</td>
-						<td>Company :<br>
-							<input type="text" class="bg-txt-con">
+							<?php echo $this->Form->input('email',array('class' => 'bg-txt-con'));?>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">Messages : *<br>
-							<textarea cols="20" rows="100" class="messbox"></textarea>
+						<td>Messages : *<br>
+							<?php echo $this->Form->input('message',array('class' => 'messbox','cols' => 20,'rows' => 100));?>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							Fields with * are required <br>
-							<input type="submit" value="" class="submit2">
+							<?php echo $this->Form->submit('submit.jpg',array('class' => 'submit2','div' => false))?>
 						</td>
 					</tr>
 				</table>

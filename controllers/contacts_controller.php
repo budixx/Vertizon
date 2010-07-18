@@ -6,9 +6,16 @@ class ContactsController extends AppController {
 	function index() {
 		$body = 'about';
 		
-		$this->Contact->recursive = 0;
-		$contacts = $this->paginate();
-		$this->set(compact('body','contacts'));
+		if (!empty($this->data)) {
+			$this->Contact->create();
+			if ($this->Contact->save($this->data)) {
+				$this->Session->setFlash(sprintf(__('Your message has been saved.', true), 'contact'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'contact'));
+			}
+		}
+		$this->set(compact('body'));
 	}
 
 	function admin_index() {
