@@ -3,7 +3,9 @@
 	<fieldset>
  		<legend><?php printf(__('Admin Add %s', true), __('Contact', true)); ?></legend>
 	<?php
+		echo $this->Form->input('name');
 		echo $this->Form->input('email');
+		echo $this->Form->input('message');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

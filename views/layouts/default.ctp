@@ -7,13 +7,21 @@
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
-		echo $this->Html->css(array('haccordion','screen'));
-		echo $this->Javascript->link(array('jquery','jquery_002','mainpage_foot','jquery.fancybox/jquery.fancybox-1.2.1.pack'));
+		echo $this->Html->css(array('haccordion','screen','/js/nivo/nivo-slider','/js/nivo/style-pack/custom-nivo-slider'));
+	?>
+</head>
+<body class="<?php echo empty($body) ? '' : $body;?>">
+	<?php echo $this->element('navigation'); ?> 
+	<?php echo $this->Session->flash(); ?>
+	<?php echo $content_for_layout; ?>
+	<?php echo $this->element('footer');?>
+	<?php echo $this->element('sql_dump'); ?>
+	<?php 
+		echo $this->Javascript->link(array('jquery','jquery_002','mainpage_foot','jquery.fancybox/jquery.fancybox-1.2.1.pack','nivo/jquery.nivo.slider.pack'));
 	?>
 	<!--[if IE]> 
 		<?php echo $this->Javascript->link(array('DD_belated','jqueyr.dropdown'));?>
 	<![endif]-->
-	
 	<script type="text/javascript">
 	$(document).ready(function(){
 	
@@ -88,13 +96,30 @@
 	$(document).ready(function() {
 		$("a.pict").fancybox();
 	});
+
+	$(window).load(function() {
+		$('#slider').nivoSlider({
+			effect:'random', //Specify sets like: 'fold,fade,sliceDown'
+			slices:15,
+			animSpeed:500,
+			pauseTime:3000,
+			startSlide:0, //Set starting Slide (0 index)
+			directionNav:true, //Next & Prev
+			directionNavHide:true, //Only show on hover
+			controlNav:true, //1,2,3...
+			controlNavThumbs:false, //Use thumbnails for Control Nav
+	     	 controlNavThumbsFromRel:false, //Use image rel for thumbs
+			controlNavThumbsSearch: '.jpg', //Replace this with...
+			controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+			keyboardNav:true, //Use left & right arrows
+			pauseOnHover:true, //Stop animation while hovering
+			manualAdvance:false, //Force manual transitions
+			captionOpacity:0.8, //Universal caption opacity
+			beforeChange: function(){},
+			afterChange: function(){},
+			slideshowEnd: function(){} //Triggers after all slides have been shown
+		})
+	})	
 	</script>
-</head>
-<body class="<?php echo empty($body) ? '' : $body;?>">
-	<?php echo $this->element('navigation'); ?> 
-	<?php echo $this->Session->flash(); ?>
-	<?php echo $content_for_layout; ?>
-	<?php echo $this->element('footer');?>
-	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

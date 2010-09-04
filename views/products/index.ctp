@@ -7,9 +7,7 @@
 			<div class="inside-right">
 				<p class="breadcrumb">Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; Aluminium Chassis &nbsp;/&nbsp; <abbr>NZXT</abbr></p>
 				<div class="dashline mr-top"></div>
-				
 				<?php echo $this->element('sort_by')?>
-
 				<div class="mr-top">
 					 <?php echo $this->element('showpage')?>
 					 <?php echo $this->element('pagination')?>

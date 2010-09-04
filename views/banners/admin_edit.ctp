@@ -4,7 +4,6 @@
  		<legend><?php printf(__('Admin Edit %s', true), __('Banner', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('file',array('type' => 'file'));
 		echo $this->Form->input('link');
 	?>
 	</fieldset>

@@ -4,7 +4,9 @@
  		<legend><?php printf(__('Admin Edit %s', true), __('Contact', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
+		echo $this->Form->input('name');
 		echo $this->Form->input('email');
+		echo $this->Form->input('message');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

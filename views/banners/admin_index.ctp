@@ -17,7 +17,7 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $banner['Banner']['id']; ?>&nbsp;</td>
-		<td><?php echo $banner['Banner']['file']; ?>&nbsp;</td>
+		<td><?php echo $banner['Banner']['basename']; ?>&nbsp;</td>
 		<td><?php echo $banner['Banner']['link']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $banner['Banner']['id'])); ?>
