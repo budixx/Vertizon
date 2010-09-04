@@ -28,10 +28,8 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css(array('cake.generic','/js/jquery.fancybox/jquery.fancybox'));
 		
-		echo $this->Javascript->link(array('ckeditor/ckeditor'));
-
 		echo $scripts_for_layout;
 	?>
 </head>
@@ -60,5 +58,19 @@
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
+	<?php 
+		echo $this->Javascript->link(array('ckeditor/ckeditor','jquery','jquery.fancybox/jquery.fancybox-1.2.1.pack'));
+	?>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("a.pict").fancybox({
+			 'autoDimensions' : false,
+			 'autoScale' : false,
+			 'transitionIn' : 'elastic',
+			 'transitionOut' : 'elastic',
+			 'overlayShow' : false
+		 });
+	});
+	</script>
 </body>
 </html>

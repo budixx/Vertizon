@@ -2,6 +2,7 @@
 class Pbrand extends AppModel {
 	var $name = 'Pbrand';
 	var $displayField = 'name';
+	var $actsAs = array('Media.Transfer','Media.Coupler','Media.Meta');
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(

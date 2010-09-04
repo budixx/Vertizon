@@ -2,6 +2,7 @@
 class BannersController extends AppController {
 
 	var $name = 'Banners';
+	var $helpers = array('Media.Media');
 
 	function admin_index() {
 		$this->Banner->recursive = 0;

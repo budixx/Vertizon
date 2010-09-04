@@ -17,10 +17,9 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $banner['Banner']['id']; ?>&nbsp;</td>
-		<td><?php echo $banner['Banner']['basename']; ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($banner['Banner']['basename'],$this->Media->urls($banner['Banner']['file']),array('class' => 'pict','rel' => 'group')); ?>&nbsp;</td>
 		<td><?php echo $banner['Banner']['link']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $banner['Banner']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $banner['Banner']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $banner['Banner']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $banner['Banner']['id'])); ?>
 		</td>
