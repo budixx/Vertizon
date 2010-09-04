@@ -2,6 +2,7 @@
 class PcategoriesController extends AppController {
 
 	var $name = 'Pcategories';
+	var $helpers = array('Media.Media');
 
 	function index() {
 		$this->Pcategory->recursive = 0;
@@ -15,14 +16,6 @@ class PcategoriesController extends AppController {
 	function admin_index() {
 		$this->Pcategory->recursive = 0;
 		$this->set('pcategories', $this->paginate());
-	}
-
-	function admin_view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'pcategory'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('pcategory', $this->Pcategory->read(null, $id));
 	}
 
 	function admin_add() {

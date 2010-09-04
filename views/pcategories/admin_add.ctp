@@ -1,9 +1,10 @@
 <div class="pcategories form">
-<?php echo $this->Form->create('Pcategory');?>
+<?php echo $this->Form->create('Pcategory',array('type' => 'file'));?>
 	<fieldset>
- 		<legend><?php printf(__('Admin Add %s', true), __('Pcategory', true)); ?></legend>
+ 		<legend><?php printf(__('Admin Add %s', true), __('Category', true)); ?></legend>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('file',array('type' => 'file'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -12,8 +13,6 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Pcategories', true)), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Pbrands', true)), array('controller' => 'pbrands', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Pbrand', true)), array('controller' => 'pbrands', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Categories', true)), array('action' => 'index'));?></li>
 	</ul>
 </div>

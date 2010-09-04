@@ -14,8 +14,6 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Pcategory.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Pcategory.id'))); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Pcategories', true)), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Pbrands', true)), array('controller' => 'pbrands', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Pbrand', true)), array('controller' => 'pbrands', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Categories', true)), array('action' => 'index'));?></li>
 	</ul>
 </div>
