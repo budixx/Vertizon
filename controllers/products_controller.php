@@ -2,7 +2,7 @@
 class ProductsController extends AppController {
 
 	var $name = 'Products';
-	var $helpers = array('Phpthumb');
+	var $helpers = array('Phpthumb','Media.Media');
 
 	function beforeFilter() {
 		parent::beforeFilter();

@@ -4,7 +4,7 @@
  		<legend><?php printf(__('Admin Edit %s', true), __('Brand', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('pcategory_id');
+		echo $this->Form->input('pcategory_id',array('label' => 'Category'));
 		echo $this->Form->input('name');
 	?>
 	</fieldset>

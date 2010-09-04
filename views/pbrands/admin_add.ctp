@@ -3,7 +3,7 @@
 	<fieldset>
  		<legend><?php printf(__('Admin Add %s', true), __('Brand', true)); ?></legend>
 	<?php
-		echo $this->Form->input('pcategory_id');
+		echo $this->Form->input('pcategory_id',array('label' => 'Category'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('file',array('type' => 'file'));
 	?>
@@ -14,10 +14,6 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Pbrands', true)), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Pcategories', true)), array('controller' => 'pcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Pcategory', true)), array('controller' => 'pcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Ptypes', true)), array('controller' => 'ptypes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Ptype', true)), array('controller' => 'ptypes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Brands', true)), array('action' => 'index'));?></li>
 	</ul>
 </div>
