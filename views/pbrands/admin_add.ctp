@@ -1,7 +1,7 @@
 <div class="pbrands form">
 <?php echo $this->Form->create('Pbrand',array('type' => 'file'));?>
 	<fieldset>
- 		<legend><?php printf(__('Admin Add %s', true), __('Pbrand', true)); ?></legend>
+ 		<legend><?php printf(__('Admin Add %s', true), __('Brand', true)); ?></legend>
 	<?php
 		echo $this->Form->input('pcategory_id');
 		echo $this->Form->input('name');

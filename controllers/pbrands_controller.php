@@ -2,6 +2,7 @@
 class PbrandsController extends AppController {
 
 	var $name = 'Pbrands';
+	var $helpers = array('Media.Media');
 
 	function index($id = null) {
 		$this->Pbrand->recursive = 1;
@@ -18,14 +19,6 @@ class PbrandsController extends AppController {
 	function admin_index() {
 		$this->Pbrand->recursive = 0;
 		$this->set('pbrands', $this->paginate());
-	}
-
-	function admin_view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'pbrand'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('pbrand', $this->Pbrand->read(null, $id));
 	}
 
 	function admin_add() {

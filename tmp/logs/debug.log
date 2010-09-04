@@ -1533,3 +1533,5 @@
 2010-09-04 21:46:14 Notice: Notice (8): Undefined index: action in [/home/rudy/www/cake/cake/libs/view/helpers/form.php, line 253]
 2010-09-04 21:46:14 Notice: Notice (8): Undefined variable: menuses in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
 2010-09-04 21:46:14 Notice: Notice (8): Undefined property: View::$Javascript in [/home/rudy/www/vertizon/views/layouts/default.ctp, line 20]
+2010-09-04 22:19:50 Notice: Notice (8): session_start() [http://php.net/function.session-start]: ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13) in [/home/rudy/www/cake/cake/libs/cake_session.php, line 587]
+2010-09-04 22:22:22 Notice: Notice (8): Undefined property: View::$Media in [/home/rudy/www/vertizon/views/pbrands/admin_index.ctp, line 25]
