@@ -9,7 +9,7 @@ class Product extends AppModel {
 			'resource' => array(
 				'rule' => 'checkResource',
 				'allowEmpty' => false,
-				'required' => true
+				'message' => 'Please upload the file'
 			),
 			'mimeType' => array(
 				'rule' => array('checkMimeType', false, array ( 'image/jpeg', 'image/png','image/gif')),

@@ -4,11 +4,13 @@ class PbrandsController extends AppController {
 	var $name = 'Pbrands';
 	var $helpers = array('Media.Media');
 
-	function index($id = null) {
+	function index($slug = null) {
+		if (!$slug) {
+			$this->flashWarning('Invalid Brand');
+		}
 		$this->Pbrand->recursive = 1;
-		
-		$pbrands = $this->paginate('Pbrand',array('Pbrand.pcategory_id' => $id));
-		$pcategory = $this->Pbrand->Pcategory->find('first',array('conditions' => array('Pcategory.id' => $id)));
+		$pcategory = $this->Pbrand->Pcategory->findBySlug($slug);
+		$pbrands = $this->paginate('Pbrand',array('Pbrand.pcategory_id' => $pcategory['Pcategory']['id']));
 		
 		$left_category = $pcategory['Pcategory']['id'];
 		$body = 'product';

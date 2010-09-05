@@ -5,7 +5,16 @@
 			
 			<!--RIGHT SIDE-->
 			<div class="inside-right">
-				<p class="breadcrumb">Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; Aluminium Chasis &nbsp;/&nbsp; NZXT &nbsp;/&nbsp; <abbr>Black NPW 23</abbr></p>
+				<p class="breadcrumb">
+					<?php 
+						$this->Html->addCrumb('Categories',array('controller' => 'pcategories','action' => 'index'));
+						$this->Html->addCrumb($pcategory['Pcategory']['name'],array('controller' => 'pbrands','action' => 'index',$pcategory['Pcategory']['slug']));
+						$this->Html->addCrumb($ptype['Pbrand']['name'],array('controller' => 'pbrands','action' => 'index',$pcategory['Pcategory']['slug']));
+						$this->Html->addCrumb($ptype['Ptype']['name'],array('controller' => 'products','action' => 'index',$ptype['Ptype']['slug']));
+						$this->Html->addCrumb($product['Product']['name']);
+					?>
+					<?php echo $this->Html->getCrumbs(' / ');?>
+				</p>
 				<div class="dashline mr-top"></div>
 				
 				<h2 class="mr-top"><?php echo $product['Product']['name']?></h2>

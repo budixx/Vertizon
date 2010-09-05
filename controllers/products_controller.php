@@ -11,22 +11,27 @@ class ProductsController extends AppController {
 		$this->set(compact('body'));
 	}
 	
-	function index($id = null) {
-		if (!$id) {
-			$this->flashWarning('Invalid Product');
+	function index($slug) {
+		if (!$slug) {
+			$this->flashWarning('Invalid Product Type');
 		}
 		$this->Product->recursive = 1;
-		$products = $this->paginate('Product',array('Product.ptype_id' => $id));
+		$ptype = $this->Product->Ptype->findBySlug($slug);
+		$pcategory = ClassRegistry::init('Pcategory')->find('first',array('conditions' => array('Pcategory.id' => $ptype['Pbrand']['pcategory_id'])));
+		$products = $this->paginate('Product',array('Product.ptype_id' => $ptype['Ptype']['id']));
 
-		$this->set(compact('products'));
+		$this->set(compact('products','ptype','pcategory'));
 	}
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'product'));
-			$this->redirect(array('action' => 'index'));
+	function view($slug = null) {
+		if (!$slug) {
+			$this->flashWarning('Invalid Product');
 		}
-		$this->set('product', $this->Product->read(null, $id));
+		$product = $this->Product->findBySlug($slug);
+		$ptype = $this->Product->Ptype->findBySlug($product['Ptype']['slug']);
+		$pcategory = ClassRegistry::init('Pcategory')->find('first',array('conditions' => array('Pcategory.id' => $ptype['Pbrand']['pcategory_id'])));
+		
+		$this->set(compact('product','ptype','pcategory'));
 	}
 
 	function admin_index() {

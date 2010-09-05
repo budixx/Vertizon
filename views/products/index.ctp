@@ -5,7 +5,15 @@
 			
 			<!--RIGHT SIDE-->
 			<div class="inside-right">
-				<p class="breadcrumb">Home &nbsp;/&nbsp; Products &nbsp;/&nbsp; Aluminium Chassis &nbsp;/&nbsp; <abbr>NZXT</abbr></p>
+				<p class="breadcrumb">
+					<?php 
+						$this->Html->addCrumb('Categories',array('controller' => 'pcategories','action' => 'index'));
+						$this->Html->addCrumb($pcategory['Pcategory']['name'],array('controller' => 'pbrands','action' => 'index',$pcategory['Pcategory']['slug']));
+						$this->Html->addCrumb($ptype['Pbrand']['name'],array('controller' => 'pbrands','action' => 'index',$pcategory['Pcategory']['slug']));
+						$this->Html->addCrumb($ptype['Ptype']['name']);
+					?>
+					<?php echo $this->Html->getCrumbs(' / ');?>				
+				</p>
 				<div class="dashline mr-top"></div>
 				<?php echo $this->element('sort_by')?>
 				<div class="mr-top">
@@ -33,9 +41,9 @@
 						)
 					);
 					?>
-					<?php echo $this->Html->link($this->Html->image($image['src'],array('alt' => 'product')),array('action' => 'view',$product['Product']['id']),array('escape' => false))?>
+					<?php echo $this->Html->link($this->Html->image($image['src'],array('alt' => 'product')),array('action' => 'view',$product['Product']['slug']),array('escape' => false))?>
 					<h5>
-						<?php echo $this->Html->link($product['Product']['name'],array('action' => 'view',$product['Product']['id']))?>
+						<?php echo $this->Html->link($product['Product']['name'],array('action' => 'view',$product['Product']['slug']))?>
 					</h5>
 					<p><?php echo $this->Text->truncate($product['Product']['desc'],110,array('exact' => false))?></p>
 				</div>

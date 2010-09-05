@@ -409,7 +409,7 @@ ALL INSIDE
 		font: 11px Arial;
 		color: #000;
 		}
-		.breadcrumb abbr {
+		.breadcrumb a {
 			color: #0092c8;
 			}
 	.address-left {

@@ -47,14 +47,5 @@
 					<?php endforeach;?>
 				</div>
 				<div class="border-horizontal"></div>
-				
-				<!--Download Catalog-->
-				<h2>Download Catalog</h2>
-				<?php echo $this->Html->image('/img/ic-catalog.jpg',array('alt' => 'catalog','class' => 'ft-left'))?>
-				<p style="padding: 10px 0 0 110px;">Download the latest issue of our products. We always give the best we could.</p>
-				<a href="#" style="margin: 0 0 0 5px;">
-					<?php echo $this->Html->image('/img/download.jpg',array('alt' => 'download'))?>
-				</a>
 				<div class="clear"></div>
-				
 			</div>
