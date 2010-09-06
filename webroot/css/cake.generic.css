@@ -21,6 +21,14 @@
 	padding:0;
 }
 
+#photo {
+	border:1px solid #CCC;
+	padding:5px;
+	width:155px;
+	float:left;
+	margin: 0 5px 5px 0;
+}
+
 /***********************************************
 HEADER
 

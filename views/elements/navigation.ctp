@@ -17,12 +17,20 @@
 			<ul class="dropdown dropdown-horizontal">
 				<?php foreach($menuses as $menus):?>
 					<li><?php echo $this->Html->link('',!empty($menus['Menus']['link']) ? $menus['Menus']['link'] : array('controller' => 'menuses','action' => 'view',$menus['Menus']['id']),array('class' => strtolower($menus['Menus']['name'])))?>
-					<?php if(!empty($menus['ChildMenus'])):?>
+					<?php if($menus['Menus']['name'] == 'Product'):?>
 						<ul>
-							<?php foreach($menus['ChildMenus'] as $menus):?>
-								<li><?php echo $this->Html->link($menus['name'],!empty($menus['link']) ? $menus['link'] : array('controller' => 'menuses','action' => 'view',$menus['id']))?></li>
+							<?php foreach($pcategories as $category):?>
+								<li><?php echo $this->Html->link($category['Pcategory']['name'],array('controller' => 'pbrands','action' => 'index',$category['Pcategory']['slug']))?></li>	
 							<?php endforeach;?>
 						</ul>
+					<?php else:?>
+						<?php if(!empty($menus['ChildMenus'])):?>
+							<ul>
+								<?php foreach($menus['ChildMenus'] as $menus):?>
+									<li><?php echo $this->Html->link($menus['name'],!empty($menus['link']) ? $menus['link'] : array('controller' => 'menuses','action' => 'view',$menus['id']))?></li>
+								<?php endforeach;?>
+							</ul>
+						<?php endif;?>
 					<?php endif;?>
 					</li>
 				<?php endforeach;?>

@@ -3,7 +3,7 @@ class Menus extends AppModel {
 	var $name = 'Menus';
 	var $displayField = 'name';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
+	var $actsAs = array('Sluggable' => array('separator' => '-','overwrite' => true,'label' => 'name'));
 	var $belongsTo = array(
 		'ParentMenus' => array(
 			'className' => 'Menus',

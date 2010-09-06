@@ -2,7 +2,7 @@
 			<div class="inside-left">
 				<h2>Quick Links</h2>
 				<div class="accordion2">
-					<?php foreach ($left_categories as $category):?>
+					<?php foreach ($pcategories as $category):?>
 						<h3><?php echo $this->Html->link($category['Pcategory']['name'],array('controller' => 'pcategories','action' => 'index',$category['Pcategory']['id']))?></h3>
 						<ul class="sub">
 						<?php if($category['Pcategory']['id'] == empty($left_category) ? null : $left_category):?>

@@ -19,10 +19,10 @@ class AppController extends Controller {
 		$menuses = ClassRegistry::init('Menus')->find('all');
 		
 		#get the left variables
-		$left_categories = ClassRegistry::init('Pcategory')->find('all');
+		$pcategories = ClassRegistry::init('Pcategory')->find('all');
 		$left_featureds = ClassRegistry::init('Product')->find('all',array('conditions' => array('Product.featured' => 1)));
 
-		$this->set(compact('menuses','left_categories','left_featureds'));
+		$this->set(compact('menuses','pcategories','left_featureds'));
 	}
 	
 /**

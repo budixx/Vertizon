@@ -2,7 +2,7 @@
 class ProductsController extends AppController {
 
 	var $name = 'Products';
-	var $helpers = array('Phpthumb','Media.Media');
+	var $helpers = array('Phpthumb','Media.Media','Ajax','Ajaxupload');
 
 	function beforeFilter() {
 		parent::beforeFilter();
@@ -92,6 +92,31 @@ class ProductsController extends AppController {
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Product'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function admin_photo($id = null) {
+		$this->layout = 'ajax';
+
+		if(!empty($this->data)) {
+			$data['Photo']['product_id'] = $_POST['id'];
+			$data['Photo']['file'] = $this->data['Product']['File'];
+
+			$this->Product->Photo->create();
+			$this->Product->Photo->save($data);
+		}
+		$photos = $this->Product->Photo->find('all',array('conditions' => array('Photo.product_id' => isset($id) ? $id : $data['Photo']['product_id'])));
+		$this->set(compact('photos'));
+	}
+	
+	function admin_deletephoto($id = null) {
+		$this->layout = 'ajax';
+		$photo = $this->Product->Photo->find('first',array('conditions' => array('Photo.id' => $id)));
+		
+		$this->Product->Photo->recursive = -1;
+		if(!empty($photo)) $this->Product->Photo->delete($id);
+
+		$photos = $this->Product->Photo->find('all',array('conditions' => array('Photo.product_id' => $photo['Photo']['product_id'])));
+		$this->set(compact('photos'));
 	}
 }
 ?>

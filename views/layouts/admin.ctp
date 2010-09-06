@@ -28,10 +28,35 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('cake.generic','/js/jquery.fancybox/jquery.fancybox'));
+		echo $this->Html->css(array('cake.generic','/js/jquery.fancybox/jquery.fancybox','ui-lightness/jquery-ui-1.8.1.custom'));
 		
 		echo $scripts_for_layout;
 	?>
+		<?php 
+		echo $this->Javascript->link(array('ckeditor/ckeditor','jquery','jquery.fancybox/jquery.fancybox-1.2.1.pack','jquery-ui-1.8.1.custom.min','ajaxupload'));
+	?>
+	<script type="text/javascript">
+	$(function(){
+		// Tabs
+		$('#tabs').tabs();
+		//hover states on the static widgets
+		$('#dialog_link, ul#icons li').hover(
+			function() { $(this).addClass('ui-state-hover'); }, 
+			function() { $(this).removeClass('ui-state-hover'); }
+		);
+	});
+	
+	$(document).ready(function() {
+		$("a.pict").fancybox({
+			'transitionIn'	:	'elastic',
+			'transitionOut'	:	'elastic',
+			'speedIn'		:	600, 
+			'speedOut'		:	200, 
+			'overlayShow'	:	false
+		 });
+		$("#ajax-loader").hide();
+	});
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -58,19 +83,5 @@
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
-	<?php 
-		echo $this->Javascript->link(array('ckeditor/ckeditor','jquery','jquery.fancybox/jquery.fancybox-1.2.1.pack'));
-	?>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$("a.pict").fancybox({
-			 'autoDimensions' : false,
-			 'autoScale' : false,
-			 'transitionIn' : 'elastic',
-			 'transitionOut' : 'elastic',
-			 'overlayShow' : false
-		 });
-	});
-	</script>
 </body>
 </html>
