@@ -1191,3 +1191,4 @@
 2010-09-06 15:47:49 Warning: Warning (2): Invalid argument supplied for foreach() in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
 2010-09-06 15:50:01 Warning: Warning (2): Invalid argument supplied for foreach() in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
 2010-09-06 15:51:41 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1052: Column 'dirname' in where clause is ambiguous</span> in [/home/rudy/www/cake/cake/libs/model/datasources/dbo_source.php, line 673]
+2010-09-06 20:16:57 Warning: Warning (2): Invalid argument supplied for foreach() in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]

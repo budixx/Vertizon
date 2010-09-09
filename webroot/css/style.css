@@ -219,6 +219,7 @@ Detail Product
 		.thumbs2 img:hover {
 			border: 1px solid #555;
 			}
+
 ul.listed, ul.listed2 {
 	margin-top: 5px;
 	padding-left: 30px;
@@ -424,3 +425,48 @@ ALL INSIDE
 		margin-top: 10px;
 		}
 		.mailto a:hover { text-decoration: underline; }
+/*************************************
+GALLERIFIC FOR PRODUCT
+
+*************************************/			
+		
+.thumbs {
+	float: left;
+	height: 415px;
+	width: 90px;
+	}
+	.thumbs li {
+		border: 1px solid #bababa;
+		float: left;
+		margin-bottom: 3px;
+		list-style:none;
+		}
+	.thumbs li.selected {
+		border: 1px solid #666;
+	}
+	.thumbs li {
+		padding:5px;
+	}
+
+#gallery .slideshow-container {
+	position: relative;
+	clear: both;
+	height: 415px; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+#gallery .loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('../img/loader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 440px;
+	height: 415px; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+#gallery .slideshow span.image-wrapper {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}

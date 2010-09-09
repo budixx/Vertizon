@@ -9,18 +9,11 @@
 	<?php
 		echo $this->Html->css(array('haccordion','screen','/js/nivo/nivo-slider','/js/nivo/style-pack/custom-nivo-slider'));
 	?>
-</head>
-<body class="<?php echo empty($body) ? '' : $body;?>">
-	<?php echo $this->element('navigation'); ?> 
-	<?php echo $this->Session->flash(); ?>
-	<?php echo $content_for_layout; ?>
-	<?php echo $this->element('footer');?>
-	<?php echo $this->element('sql_dump'); ?>
 	<?php 
-		echo $this->Javascript->link(array('jquery','jquery_002','mainpage_foot','jquery.fancybox/jquery.fancybox-1.2.1.pack','nivo/jquery.nivo.slider.pack'));
+		echo $this->Javascript->link(array('jquery','jquery_002','mainpage_foot','jquery.fancybox/jquery.fancybox-1.2.1.pack','nivo/jquery.nivo.slider.pack','gallerific/jquery.galleriffic','gallerific/jquery.opacityrollover'));
 	?>
 	<!--[if IE]> 
-		<?php echo $this->Javascript->link(array('DD_belated','jqueyr.dropdown'));?>
+		<?php echo $this->Javascript->link(array('DD_belated','jquery.dropdown'));?>
 	<![endif]-->
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -38,7 +31,6 @@
 	});
 	
 	$(document).ready(function(){
-		
 		$(".accordion h3").eq(0).addClass("active");
 		$(".accordion p").eq(0).show();
 	
@@ -52,7 +44,6 @@
 	});
 	
 	$(document).ready(function(){
-			
 		$(".accordion2 h3").eq(0).addClass("active");
 		$(".accordion2 ul.sub").eq(0).show();
 	
@@ -66,28 +57,11 @@
 	});
 	
 	$(document).ready(function(){
-	
-		$(".thumbs2 a").click(function(){
-		
-			var largePath = $(this).attr("href");
-			var largeAlt = $(this).attr("title");
-			
-			$("#largeImg2").attr({ src: largePath, alt: largeAlt });
-			
-			 return false;
-		});
-		
-	});
-	
-	$(document).ready(function(){
-	
 		$(".thumbs3 .asd a").click(function(){
-		
 			var largePath = $(this).attr("href");
 			var largeAlt = $(this).attr("title");
 			
 			$("#largeImg3").attr({ src: largePath, alt: largeAlt });
-			
 			 return false;
 		});
 		
@@ -108,7 +82,7 @@
 			directionNavHide:true, //Only show on hover
 			controlNav:true, //1,2,3...
 			controlNavThumbs:false, //Use thumbnails for Control Nav
-	     	 controlNavThumbsFromRel:false, //Use image rel for thumbs
+	     	controlNavThumbsFromRel:false, //Use image rel for thumbs
 			controlNavThumbsSearch: '.jpg', //Replace this with...
 			controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
 			keyboardNav:true, //Use left & right arrows
@@ -119,7 +93,14 @@
 			afterChange: function(){},
 			slideshowEnd: function(){} //Triggers after all slides have been shown
 		})
-	})	
+	})
 	</script>
+</head>
+<body class="<?php echo empty($body) ? '' : $body;?>">
+	<?php echo $this->element('navigation'); ?> 
+	<?php echo $this->Session->flash(); ?>
+	<?php echo $content_for_layout; ?>
+	<?php echo $this->element('footer');?>
+	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

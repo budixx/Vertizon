@@ -1592,3 +1592,5 @@
 2010-09-06 15:46:54 Notice: Notice (8): Undefined variable: menuses in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
 2010-09-06 15:47:49 Notice: Notice (8): Undefined variable: menuses in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
 2010-09-06 15:50:01 Notice: Notice (8): Undefined variable: menuses in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
+2010-09-06 17:17:57 Notice: Notice (8): Undefined index: name in [/home/rudy/www/vertizon/views/products/view.ctp, line 82]
+2010-09-06 20:16:57 Notice: Notice (8): Undefined variable: menuses in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
