@@ -9,13 +9,27 @@ class ContactsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Contact->create();
 			if ($this->Contact->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('Your message has been saved.', true), 'contact'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'contact'));
+				$this->flashWarning('Your message has been saved, thank you !',array('action' => 'index'));
+				
+				#setting up email notification for user
+				$details['to'] = $this->data['Contact']['email'];
+				$details['subject'] = 'Thank you for your message !';
+				$details['template'] = 'contact_user';
+				$details['sendAs'] = 'html';
+				$this->_sendemail($details,$this->data);
+				
+				#setting up email notification for staff
+				$details['to'] = 'support@vertizon-indonesia.com';
+				$details['subject'] = 'New message !';
+				$details['template'] = 'contact_admin';
+				$details['sendAs'] = 'html';
+				$this->_sendemail($details,$this->data);
 			}
+			else
+				$this->Session->setFlash(sprintf(__('Your message could not be saved. Please, correct the errors below.', true), 'contact'));
 		}
-		$this->set(compact('body'));
+		$menu = ClassRegistry::init('Menus')->find('first',array('conditions' => array('Menus.name' => 'Contact Us')));
+		$this->set(compact('body','menu'));
 	}
 
 	function admin_index() {

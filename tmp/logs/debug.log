@@ -1601,3 +1601,8 @@
 2010-09-09 14:12:02 Notice: Notice (8): Undefined variable: product in [/home/rudy/www/vertizon/views/reviews/admin_view.ctp, line 31]
 2010-09-09 14:18:53 Notice: Notice (8): Undefined variable: thumbnail in [/home/rudy/www/vertizon/views/reviews/index.ctp, line 42]
 2010-09-09 14:21:31 Notice: Notice (8): Undefined variable: thumbnail in [/home/rudy/www/vertizon/views/reviews/view.ctp, line 42]
+2010-09-09 14:37:12 Notice: Notice (8): Undefined variable: menuses in [/home/rudy/www/vertizon/views/elements/navigation.ctp, line 18]
+2010-09-09 14:37:19 Notice: Notice (8): Undefined variable: menu in [/home/rudy/www/vertizon/views/contacts/index.ctp, line 12]
+2010-09-09 14:37:27 Notice: Notice (8): Undefined variable: menu in [/home/rudy/www/vertizon/views/contacts/index.ctp, line 12]
+2010-09-09 14:37:35 Notice: Notice (8): Undefined variable: menu in [/home/rudy/www/vertizon/views/contacts/index.ctp, line 12]
+2010-09-09 14:37:44 Notice: Notice (8): Undefined index: contact in [/home/rudy/www/vertizon/views/contacts/index.ctp, line 12]

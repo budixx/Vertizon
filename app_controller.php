@@ -25,7 +25,7 @@ class AppController extends Controller {
 		$this->set(compact('menuses','pcategories','left_featureds'));
 	}
 	
-/**
+	/**
 	 * set the error message and redirect to referer if action is null
 	 *
 	 * @param the warning
@@ -45,6 +45,31 @@ class AppController extends Controller {
 		}
 		else
 			$this->redirect($redirect);
+	}
+	
+	/**
+	 * function to send email
+	 *
+	 * @param $details array of details of sending email
+	 * @param $data data that needed by email to be sended to the layout
+	 * @return none
+	 * @access private
+	 */
+	
+	function _sendemail($details,$data) {
+		$this->Email->to = $details['to'];
+		$this->Email->subject = $details['subject'];
+		$this->Email->replyTo = empty($details['replyTo']) ? 'support@vertizon-indonesia.com' : $details['replyTo'];
+		$this->Email->from = empty($details['from']) ? 'Vertizon <support@vertizon-indonesia.com>' : $details['from'];
+		$this->Email->template = $details['template'];
+		if(!empty($details['filePaths']) && !empty($details['attachments'])) {
+			$this->Email->filePaths = $details['filePaths'];
+			$this->Email->attachments = $details['attachments']; 
+		}
+		$this->Email->sendAs = $details['sendAs'];
+
+		$this->set(compact('data'));
+		$this->Email->send();
 	}
 }
 ?>
