@@ -14,8 +14,14 @@
 					<ul>
 						<li><?php echo $this->Html->link('Banners',array('controller' => 'banners','action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Newsletters',array('controller' => 'newsletters','action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link('Menuses',array('controller' => 'menuses','action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Menu',array('controller' => 'menuses','action' => 'index')); ?></li>
 						<li><?php echo $this->Html->link('Front Featured',array('controller' => 'featureds','action' => 'index')); ?></li>
+					</ul>
+				</li>
+				<li><a href="#" class="dir">Information</a>
+					<ul>
+						<li><?php echo $this->Html->link('Contents',array('controller' => 'contents','action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Reviews',array('controller' => 'reviews','action' => 'index')); ?></li>
 					</ul>
 				</li>
 				<li><?php echo $this->Html->link('Contacts',array('controller' => 'contacts','action' => 'index')); ?></li>

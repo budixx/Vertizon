@@ -1,5 +1,5 @@
 <div class="menuses index">
-	<h2><?php __('Menuses');?></h2>
+	<h2><?php __('Child Menu');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -48,8 +48,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Menu', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Menuses', true)), array('controller' => 'menuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Parent Menus', true)), array('controller' => 'menuses', 'action' => 'add')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Menu', true)), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Child Menu', true)), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Main Menu', true)), array('action' => 'main')); ?> </li>
 	</ul>
 </div>

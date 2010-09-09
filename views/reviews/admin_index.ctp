@@ -5,13 +5,8 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('product_id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
-			<th><?php echo $this->Paginator->sort('desc');?></th>
 			<th><?php echo $this->Paginator->sort('date');?></th>
-			<th><?php echo $this->Paginator->sort('slug');?></th>
 			<th><?php echo $this->Paginator->sort('file');?></th>
-			<th><?php echo $this->Paginator->sort('dirname');?></th>
-			<th><?php echo $this->Paginator->sort('basename');?></th>
-			<th><?php echo $this->Paginator->sort('checksum');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -30,15 +25,10 @@
 			<?php echo $this->Html->link($review['Product']['name'], array('controller' => 'products', 'action' => 'view', $review['Product']['id'])); ?>
 		</td>
 		<td><?php echo $review['Review']['title']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['desc']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['date']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['slug']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['file']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['dirname']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['basename']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['checksum']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['created']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['modified']; ?>&nbsp;</td>
+		<td><?php echo $this->Time->nice($review['Review']['date']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($review['Review']['basename'],$this->Media->urls($review['Review']['file']),array('class' => 'pict','rel' => 'group')); ?>&nbsp;</td>
+		<td><?php echo $this->Time->nice($review['Review']['created']); ?>&nbsp;</td>
+		<td><?php echo $this->Time->nice($review['Review']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $review['Review']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $review['Review']['id'])); ?>
@@ -65,7 +55,5 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Review', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

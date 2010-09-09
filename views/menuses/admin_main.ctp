@@ -1,9 +1,8 @@
 <div class="menuses index">
-	<h2><?php __('Menuses');?></h2>
+	<h2><?php __('Main Menu');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('parent_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('link');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -18,15 +17,10 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $menus['Menus']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($menus['ParentMenus']['name'], array('controller' => 'menuses', 'action' => 'view', $menus['ParentMenus']['id'])); ?>
-		</td>
 		<td><?php echo $menus['Menus']['name']; ?>&nbsp;</td>
 		<td><?php echo $menus['Menus']['link']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $menus['Menus']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $menus['Menus']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $menus['Menus']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $menus['Menus']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $menus['Menus']['id'],'main')); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -49,7 +43,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Menu', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Menuses', true)), array('controller' => 'menuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Parent Menus', true)), array('controller' => 'menuses', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Child Menu', true)), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Main Menu', true)), array('action' => 'main')); ?> </li>
 	</ul>
 </div>

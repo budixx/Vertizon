@@ -11,6 +11,7 @@ ul#pagination-clean 		  { margin-top: 15px; float: right; }
 #pagination-clean .next a,
 #pagination-clean previous a  { border:none; font-weight:bold; }	
 #pagination-clean .active     { color:#000000; font-weight:bold; display:block; float:left; padding:4px 6px; /* savers */ border-right:solid 1px #DEDEDE; }
+#pagination-clean .current     { color:#000000; font-weight:bold; display:block; float:left; padding:4px 6px; /* savers */ border-right:solid 1px #DEDEDE; }
 #pagination-clean a:link,
 #pagination-clean a:visited   { color:#0e509e; display:block; float:left; padding:3px 6px; text-decoration:underline; }
 #pagination-clean a:hover     { text-decoration:none; }

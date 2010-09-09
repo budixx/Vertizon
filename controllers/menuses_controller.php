@@ -25,10 +25,10 @@ class MenusesController extends AppController {
 
 	function admin_view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'menu'));
-			$this->redirect(array('action' => 'index'));
+			$this->flashWarning('Invalid Menu');
 		}
-		$this->set('menus', $this->Menus->read(null, $id));
+		$menus = $this->Menus->read(null, $id);
+		$this->set(compact('menus'));
 	}
 
 	function admin_add() {
@@ -45,7 +45,7 @@ class MenusesController extends AppController {
 		$this->set(compact('parents'));
 	}
 
-	function admin_edit($id = null) {
+	function admin_edit($id = null,$main = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'menu'));
 			$this->redirect(array('action' => 'index'));
@@ -62,7 +62,7 @@ class MenusesController extends AppController {
 			$this->data = $this->Menus->read(null, $id);
 		}
 		$parents = $this->Menus->find('list',array('conditions' => array('parent_id' => null)));
-		$this->set(compact('parents'));
+		$this->set(compact('parents','main'));
 	}
 
 	function admin_delete($id = null) {

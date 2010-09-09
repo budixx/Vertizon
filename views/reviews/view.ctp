@@ -1,76 +1,53 @@
-<div class="reviews view">
-<h2><?php  __('Review');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Product'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($review['Product']['name'], array('controller' => 'products', 'action' => 'view', $review['Product']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Title'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['title']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Desc'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['desc']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['date']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Slug'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['slug']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('File'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['file']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Dirname'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['dirname']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Basename'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['basename']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Checksum'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['checksum']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['created']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['modified']; ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Review', true), array('action' => 'edit', $review['Review']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Review', true), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Reviews', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Review', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+	<?php echo $this->element('small_banner')?>
+	<div id="content">
+		<div class="content-inside">
+			<?php echo $this->element('left_side');?>
+			
+			<!--RIGHT SIDE-->
+			<div class="inside-right">
+				<p class="breadcrumb">
+					<?php 
+						$this->Html->addCrumb('Information','#');
+						$this->Html->addCrumb('Reviews',array('action' => 'index'));
+						$this->Html->addCrumb($review['Review']['title']);
+					?>
+					<?php echo $this->Html->getCrumbs(' / ');?>	
+				</p>
+				<div class="dashline mr-top"></div>
+				<div class="mr-top2">
+					<div class="bg-news-title">
+						<p class="date">
+							<?php echo $this->Time->nice($review['Review']['date'])?>
+						</p>
+						<p class="titlenew">
+							<?php echo $review['Review']['title']?>
+						</p>
+					</div>
+					<div class="mr-top">
+						<?php
+							$image = $phpthumb->generate(
+								array(
+									'save_path' => WWW_ROOT . '/img/thumbs',
+									'display_path' => '/img/thumbs',
+									'error_image_path' => '/img/noimg.jpg', 
+									'src' => $review['Review']['file'],
+									// From here on out, you can pass any standard phpThumb parameters
+									'w' => 200,
+									'h' => 150,
+									'q' => 100,
+									'zc' => 1
+								)
+							);
+						?>
+						<?php echo !empty($review['Review']['file']) ? $this->Html->image($image['src'],array('class' => 'ft-left mr-right')) : ''?>
+						<p>
+							<?php echo $review['Review']['desc'];?>
+						</p>
+						<br>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>

@@ -1,71 +1,58 @@
-<div class="reviews index">
-	<h2><?php __('Reviews');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('product_id');?></th>
-			<th><?php echo $this->Paginator->sort('title');?></th>
-			<th><?php echo $this->Paginator->sort('desc');?></th>
-			<th><?php echo $this->Paginator->sort('date');?></th>
-			<th><?php echo $this->Paginator->sort('slug');?></th>
-			<th><?php echo $this->Paginator->sort('file');?></th>
-			<th><?php echo $this->Paginator->sort('dirname');?></th>
-			<th><?php echo $this->Paginator->sort('basename');?></th>
-			<th><?php echo $this->Paginator->sort('checksum');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-	$i = 0;
-	foreach ($reviews as $review):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $review['Review']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($review['Product']['name'], array('controller' => 'products', 'action' => 'view', $review['Product']['id'])); ?>
-		</td>
-		<td><?php echo $review['Review']['title']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['desc']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['date']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['slug']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['file']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['dirname']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['basename']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['checksum']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['created']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['modified']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $review['Review']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $review['Review']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-	));
-	?>	</p>
-
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+	<?php echo $this->element('small_banner')?>
+	<div id="content">
+		<div class="content-inside">
+			<?php echo $this->element('left_side');?>
+			
+			<!--RIGHT SIDE-->
+			<div class="inside-right">
+				<p class="breadcrumb">
+					<?php 
+						$this->Html->addCrumb('Information','#');
+						$this->Html->addCrumb('Reviews');
+					?>
+					<?php echo $this->Html->getCrumbs(' / ');?>
+				</p>
+				<div class="dashline mr-top"></div>
+				<?php foreach($reviews as $review):?>
+				<div class="mr-top2">
+					<div class="bg-news-title">
+						<p class="date">
+							<?php echo $this->Time->nice($review['Review']['date'])?>
+						</p>
+						<p class="titlenew">
+							<?php echo $review['Review']['title']?>
+						</p>
+					</div>
+					<div class="mr-top">
+						<?php
+							$image = $phpthumb->generate(
+								array(
+									'save_path' => WWW_ROOT . '/img/thumbs',
+									'display_path' => '/img/thumbs',
+									'error_image_path' => '/img/noimg.jpg', 
+									'src' => $review['Review']['file'],
+									// From here on out, you can pass any standard phpThumb parameters
+									'w' => 200,
+									'h' => 150,
+									'q' => 100,
+									'zc' => 1
+								)
+							);
+						?>
+						<?php echo !empty($review['Review']['file']) ? $this->Html->image($image['src'],array('class' => 'ft-left mr-right')) : ''?>
+						<p>
+							<?php echo $this->Text->truncate($review['Review']['desc'],'400',array('exact' => false))?>
+						</p>
+						<br>
+						<?php echo $this->Html->link('See More',array('action' => 'view',$review['Review']['slug']),array('class' => 'more'))?>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<?php endforeach;?>
+				
+				<!--PAGING-->
+				  <?php echo $this->element('pagination');?>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Review', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

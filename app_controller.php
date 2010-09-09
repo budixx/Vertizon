@@ -37,21 +37,14 @@ class AppController extends Controller {
 	function flashWarning($msg,$redirect = null)
 	{
 		$this->Session->setFlash($msg);
-		if(empty($redirect))
-		{
+		if(empty($redirect)) {
 			if($this->referer() == '/' || $this->referer() == '/'.$this->params['url']['url'])
-			{
 				$this->redirect(array('controller' => 'dashboards','action' => 'index'));
-			}
 			else
-			{
 				$this->redirect($this->referer());
-			}
 		}
 		else
-		{
 			$this->redirect($redirect);
-		}
 	}
 }
 ?>

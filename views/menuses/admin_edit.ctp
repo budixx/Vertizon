@@ -4,8 +4,12 @@
  		<legend><?php printf(__('Admin Edit %s', true), __('Menu', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('parent_id');
-		echo $this->Form->input('name');
+		if(!$main) 
+			echo $this->Form->input('parent_id');
+		if(!$main) 
+			echo $this->Form->input('name');
+		else 
+			echo $this->Form->input('name',array('disabled' => true)); 
 		echo $this->Form->input('content',array('class' => 'ckeditor'));
 		echo $this->Form->input('link');
 	?>
@@ -16,9 +20,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Menus.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Menus.id'))); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Menuses', true)), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Menuses', true)), array('controller' => 'menuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Parent Menus', true)), array('controller' => 'menuses', 'action' => 'add')); ?> </li>
+		<li><?php if(!$main) echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Menus.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Menus.id'))); ?></li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Menu', true)), array('action' => 'index'));?></li>
 	</ul>
 </div>
