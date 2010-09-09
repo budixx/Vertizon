@@ -36,11 +36,11 @@
 						?>
 					<div class="grid">
 						<div class="grid-icon">
-							<?php echo $this->Html->link($this->Html->image($icon['src'],array('alt' => 'icon','style' => 'margin-top:8px')),array('controller' => 'products','action' => 'view',$featured['Product']['id']),array('escape' => false))?>
+							<?php echo $this->Html->link($this->Html->image($icon['src'],array('alt' => 'icon','style' => 'margin-top:8px')),array('controller' => 'products','action' => 'view',$featured['Product']['slug']),array('escape' => false))?>
 						</div>
 						<div class="grid-content">
-							<?php echo $this->Html->link($featured['Product']['name'],array('controller' => 'products','action' => 'view',$featured['Product']['id']),array('class' => 'blue block mr-top'))?>
-							<p class="mr-top"><?php echo $this->Html->link('See the complete description.',array('controller' => 'products','action' => 'view',$featured['Product']['id'])) ?></p>
+							<?php echo $this->Html->link($featured['Product']['name'],array('controller' => 'products','action' => 'view',$featured['Product']['slug']),array('class' => 'blue block mr-top'))?>
+							<p class="mr-top"><?php echo $this->Html->link('See the complete description.',array('controller' => 'products','action' => 'view',$featured['Product']['slug'])) ?></p>
 						</div>
 						<div class="clear"></div>
 					</div>
